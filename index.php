@@ -62,14 +62,14 @@ $app->post('/webhook', function ($request, $response) use ($bot, $pass_signature
             {
                 if($event['message']['type'] == 'text')
                 {
-                    //Kode untuk custom callback
-                    $light = $event['message']['type'] == 'text';
+                    //get data
+                    $light = $event['message']['text'];
                     if($light == "on") {
                         $file = fopen("light.json", "w") or die("can't open file");
                         fwrite($file, '{"light : on"}');
                         fclose($file);
                     }
-                    else if ($light == "off") {
+                    else if($light == "off") {
                         $file = fopen("light.json", "w") or die("can't open file");
                         fwrite($file, '{"light : off"}');
                         fclose($file);
