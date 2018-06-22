@@ -69,7 +69,7 @@ $app->post('/webhook', function ($request, $response) use ($bot, $pass_signature
                         fwrite($file, '{"light : on"}');
                         fclose($file);
                     }
-                    elseif (&light == "off") {
+                    else if (&light == "off") {
                         $file = fopen("light.json", "w") or die("can't open file");
                         fwrite($file, '{"light : off"}');
                         fclose($file);
