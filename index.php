@@ -63,8 +63,8 @@ $app->post('/webhook', function ($request, $response) use ($bot, $pass_signature
                 if($event['message']['type'] == 'text')
                 {
                     //get data
-                    //$light = $event['message']['text'];
-                    $light = $event['message']['type'] == 'text';
+                    $light = $event['message']['text'];
+                    //$light = $event['message']['type'] == 'text';
                     if($light == "on") {
                         $file = fopen("light.json", "w") or die("can't open file");
                         fwrite($file, '{"light : on"}');
