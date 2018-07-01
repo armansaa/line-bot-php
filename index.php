@@ -93,15 +93,3 @@ $app->post('/webhook', function ($request, $response) use ($bot, $pass_signature
 });
  
 $app->run();
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>My first PHP page</h1>
-
-<?php
-echo "Hello World!";
-?>
-
-</body>
-</html>
