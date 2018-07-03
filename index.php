@@ -67,22 +67,22 @@ $app->post('/webhook', function ($request, $response) use ($bot, $pass_signature
                     //$light = $event['message']['type'] == 'text';
                     if($light == "led 1 on") {
                         $file = fopen("/app/light.json", "w") or die("can't open file");
-                        fwrite($file, '{"light 1" : "on"}');
+                        fwrite($file, '{"light 1" : "on"} and {"light 2" : "off"}');
                         fclose($file);
                     }
                     else if ($light == "led 1 off") {
                         $file = fopen("/app/light.json", "w") or die("can't open file");
-                        fwrite($file, '{"light 1" : "off"}');
+                        fwrite($file, '{"light 1" : "off"} and {"light 2" : "off"}');
                         fclose($file);
                     }
                     elseif ($light == "led 2 on") {
                         $file = fopen("/app/light.json", "w") or die("can't open file");
-                        fwrite($file, '{"light 2" : "on"}');
+                        fwrite($file, '{"light 2" : "on"} and {"light 1" : "off"}');
                         fclose($file);
                     }
                     elseif ($light == "led 2 off") {
                         $file = fopen("/app/light.json", "w") or die("can't open file");
-                        fwrite($file, '{"light 2" : "off"}');
+                        fwrite($file, '{"light 2" : "off"} and {"light 1" : "off"}');
                         fclose($file);
                     }
                     //End 
