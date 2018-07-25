@@ -1,13 +1,18 @@
 <?php  
-$light = $_GET['light'];
-if($light == "on") {  
-  $file = fopen("light.json", "w") or die("can't open file");
-  fwrite($file, '{"light": "on"}');
+$motor = $_GET['motor'];
+if($motor == "maju") {  
+  $file = fopen("motor.json", "w") or die("can't open file");
+  fwrite($file, '{"roda 1": "maju"}');
   fclose($file);
 } 
-else if ($light == "off") {  
-  $file = fopen("light.json", "w") or die("can't open file");
-  fwrite($file, '{"light": "off"}');
+else if ($motor == "mundur") {  
+  $file = fopen("motor.json", "w") or die("can't open file");
+  fwrite($file, '{"roda 1": "mundur"}');
+  fclose($file);
+}
+elseif ($motor == "stop") {
+  $file = fopen("motor.json", "w") or die("can't open file");
+  fwrite($file, '{"roda 1": "off"}');
   fclose($file);
 }
 ?>
@@ -29,20 +34,23 @@ else if ($light == "off") {
   <body>
     <div class="row" style="margin-top: 20px;">
       <div class="col-md-8 col-md-offset-2">
-        <a href="?light=on" class="btn btn-success btn-block btn-lg">Turn On</a>
+        <a href="?motor=on" class="btn btn-success btn-block btn-lg">Turn On</a>
         <br />
-        <a href="?light=off" class="led btn btn-danger btn-block btn-lg">Turn Off</a>
+        <a href="?motor=off" class="led btn btn-danger btn-block btn-lg">Turn Off</a>
         <br />
-        <div class="light-status well" style="margin-top: 5px; text-align:center">
+        <div class="motor-status well" style="margin-top: 5px; text-align:center">
           <?php
-            if($light=="on") {
-              echo("Turn LED on.");
+            if($motor=="maju") {
+              echo("Roda 1 maju.");
             }
-            else if ($light=="off") {
-              echo("Turn LED off.");
+            else if ($motor=="mundur") {
+              echo("Roda 1 mundur.");
+            }
+            else if ($motor=="off") {
+              echo("Roda 1 off");
             }
             else {
-              echo ("Do something.");
+              echo ("Klik salah satu tombol diatas");
             }
           ?>
         </div>

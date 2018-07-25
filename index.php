@@ -27,7 +27,7 @@ $app = new Slim\App($configs);
 // buat route untuk url homepage
 $app->get('/', function($req, $res)
 {
-  echo "Welcome at Slim Framework";
+  echo "SMART GARAGE HTTP";
 });
  
 // buat route untuk webhook
@@ -63,26 +63,26 @@ $app->post('/webhook', function ($request, $response) use ($bot, $pass_signature
                 if($event['message']['type'] == 'text')
                 {
                     //get data
-                    $light = $event['message']['text'];
-                    //$light = $event['message']['type'] == 'text';
-                    if($light == "led 1 on") {
-                        $file = fopen("/app/light.json", "w") or die("can't open file");
-                        fwrite($file, '{"light 1" : "on", "light 2" : "off"}');
+                    $motor = $event['message']['text'];
+                    //$motor = $event['message']['type'] == 'text';
+                    if($motor == "roda 1 maju") {
+                        $file = fopen("/app/motor.json", "w") or die("can't open file");
+                        fwrite($file, '{"roda 1" : "maju", "motor 2" : "off"}');
                         fclose($file);
                     }
-                    else if ($light == "led 1 off") {
-                        $file = fopen("/app/light.json", "w") or die("can't open file");
-                        fwrite($file, '{"light 1" : "off", "light 2" : "off"}');
+                    else if ($motor == "roda 1 mundur") {
+                        $file = fopen("/app/motor.json", "w") or die("can't open file");
+                        fwrite($file, '{"roda 1" : "mundur", "motor 2" : "off"}');
                         fclose($file);
                     }
-                    elseif ($light == "led 2 on") {
-                        $file = fopen("/app/light.json", "w") or die("can't open file");
-                        fwrite($file, '{"light 1" : "off", "light 2" : "on"}');
+                    elseif ($motor == "roda 1 stop") {
+                        $file = fopen("/app/motor.json", "w") or die("can't open file");
+                        fwrite($file, '{"roda 1" : "off", "motor 2" : "on"}');
                         fclose($file);
                     }
-                    elseif ($light == "led 2 off") {
-                        $file = fopen("/app/light.json", "w") or die("can't open file");
-                        fwrite($file, '{"light 1" : "off", "light 2" : "off"}');
+                    elseif ($motor == "roda 2 off") {
+                        $file = fopen("/app/motor.json", "w") or die("can't open file");
+                        fwrite($file, '{"roda 1" : "off", "motor 2" : "off"}');
                         fclose($file);
                     }
                     //End 
