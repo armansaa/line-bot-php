@@ -67,22 +67,17 @@ $app->post('/webhook', function ($request, $response) use ($bot, $pass_signature
                     //$motor = $event['message']['type'] == 'text';
                     if($motor == "roda 1 maju") {
                         $file = fopen("/app/motor.json", "w") or die("can't open file");
-                        fwrite($file, '{"roda 1" : "maju", "motor 2" : "off"}');
+                        fwrite($file, '{"roda 1" : "maju"}');
                         fclose($file);
                     }
                     elseif ($motor == "roda 1 mundur") {
                         $file = fopen("/app/motor.json", "w") or die("can't open file");
-                        fwrite($file, '{"roda 1" : "mundur", "motor 2" : "off"}');
+                        fwrite($file, '{"roda 1" : "mundur"');
                         fclose($file);
                     }
                     elseif ($motor == "roda 1 stop") {
                         $file = fopen("/app/motor.json", "w") or die("can't open file");
-                        fwrite($file, '{"roda 1" : "off", "motor 2" : "on"}');
-                        fclose($file);
-                    }
-                    elseif ($motor == "roda 2 off") {
-                        $file = fopen("/app/motor.json", "w") or die("can't open file");
-                        fwrite($file, '{"roda 1" : "off", "motor 2" : "off"}');
+                        fwrite($file, '{"roda 1" : "stop"}');
                         fclose($file);
                     }
                     //End 

@@ -12,7 +12,7 @@ else if ($motor == "mundur") {
 }
 elseif ($motor == "stop") {
   $file = fopen("motor.json", "w") or die("can't open file");
-  fwrite($file, '{"roda 1": "off"}');
+  fwrite($file, '{"roda 1": "stop"}');
   fclose($file);
 }
 ?>
@@ -36,7 +36,7 @@ elseif ($motor == "stop") {
       <div class="col-md-8 col-md-offset-2">
         <a href="?motor=on" class="btn btn-success btn-block btn-lg">Turn On</a>
         <br />
-        <a href="?motor=off" class="led btn btn-danger btn-block btn-lg">Turn Off</a>
+        <a href="?motor=stop" class="led btn btn-danger btn-block btn-lg">Turn Off</a>
         <br />
         <div class="motor-status well" style="margin-top: 5px; text-align:center">
           <?php
@@ -46,8 +46,8 @@ elseif ($motor == "stop") {
             else if ($motor=="mundur") {
               echo("Roda 1 mundur.");
             }
-            else if ($motor=="off") {
-              echo("Roda 1 off");
+            else if ($motor=="stop") {
+              echo("Roda 1 stop");
             }
             else {
               echo ("Klik salah satu tombol diatas");
